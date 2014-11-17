@@ -41,7 +41,17 @@ import java.util.*;
     // The results will be passed back (as an attribute) to the JSP view
     // The attribute will be a name/value pair, the value in this case will be a List object
     request.setAttribute("styles", result);
-    RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+    RequestDispatcher view;
+    if(c.equals("milky"))
+        view = request.getRequestDispatcher("milky_result.jsp");
+    else if(c.equals("froffy"))
+        view = request.getRequestDispatcher("froffy_result.jsp");
+    else if(c.equals("icey"))
+        view = request.getRequestDispatcher("icey_result.jsp");
+    else if(c.equals("strong"))
+        view = request.getRequestDispatcher("spaced_out_result.jsp");
+    else
+        view = request.getRequestDispatcher("result.jsp");
     view.forward(request, response);
   }
 }
